@@ -4,7 +4,7 @@ Version 0.1.2-3
 
 <a href="https://www.w3schools.com/jsref/prop_html_intter.html.asp">Good reference to 
 input output
-Javascript innterHTML value by Zachary</a>
+Javascript innerHTML value by Zachary</a>
 
 <h4> Example input output code</h4>
 <pre>
@@ -15,13 +15,13 @@ myIn01*myIn01
 
 <h4> Example working code </h4>
 
-<input id="myNum01" type=number vslue="4" ><br>
+<input id="myNum01" type=number value="4" ><br>
 
 <input type=button value="myEvent squares" onclick="{
-    let MyIn01 = parselFloat(document.getElementById('myNum01').value)
+    let MyIn01 = parseFloat(document.getElementById('myNum01').value)
     let myAnswer = myIn01 * myIn01
-    document.getElemebtById('MyDiv01').innerHTML =
-      myIn01 + ' squared = ' + my Answer
+    document.getElementById('MyDiv01').innerHTML =
+      myIn01 + ' squared = ' + myAnswer
 }"><br>
 
 <div id="myDiv01">...</div>
