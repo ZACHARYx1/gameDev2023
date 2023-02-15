@@ -12,6 +12,7 @@ School https://zacharyx1.github.io/gameDev2023/public/index.html
 </html>
 
 
+<!DOCTYPE html>
 <html>
 <head>
 <style>
@@ -22,3 +23,10 @@ body {
 </style>
 </head>
 <body>
+
+
+</body>
+</html>
+
+
+
