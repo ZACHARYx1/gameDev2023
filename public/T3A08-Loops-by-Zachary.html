@@ -36,3 +36,19 @@ Max loops: <input id="myNum01" type=number value="4" ><br>
 <div id="myDiv01">...</div>
 
   
+How many burgers can Zachary eat? <input type="number" id="myTextLoop" value="5" size="5"> 
+    
+<input id="myButton02" type="button" value="BURGER" onclick="{
+                                                               
+    document.getElementById('myDiv02').innerHTML = ''   // blank out the DIV  
+                                                               
+    for (myLoop = 0;  myLoop <= document.getElementById('myTextLoop').value;    myLoop++){   
+                                                               
+       document.getElementById('myDiv02').innerHTML += 'Burgers eaten #'+ myLoop+'<br>'  
+                                                               
+    }
+                                                               
+}"><br><br>
+
+<div id='myDiv02'>...</div><br>
+
