@@ -32,3 +32,20 @@ For Global variables Mr. Ellis prefers to use document.myVarname
 }"><br>
 
 <div id="myDiv01">...</div>
+
+<h1>Numbers only</h1>
+
+<input id="myNumber01" type=number value="6"><br>
+
+<input type=button value="Show no Variable" onclick="{
+  document.getElementById('myDiv02').innerHTML = document.getElementById('myNumber01').value
+}"><br>
+
+<input type=button value="Using variable" onclick="{
+  let myIn02 = document.getElementById('myNumber01').value 
+  document.getElementById('myDiv02').innerHTML = myIn02
+  
+}"><br>
+
+<div id="myDiv02">...</div>
+
