@@ -39,3 +39,38 @@ DO at least 8 other events:<br>
 onClick, onDbClick, onChange, onBlue, onFocus, onMouseMove, onTouch,
 onKeyDown, onKeyPress, onDragStart, onTouchStart, onTouchEnd, onTouchMove                                                              
                                                               
+
+                                                              
+                                                              
+   onClick: <br> <input type="text" value="1" id="myText02"> <br> <input type="button" value="onClick" onclick="onClickFunc()"> <br> <div id="myDiv02">...</div><br>
+   
+  onDBLClick: <br> <input type="text" value="2" id="myText03"> <br> <input type="button" value="onDBLClick" ondblclick="onDBClickFunc()"> <br> <div id="myDiv03">...</div>
+   onChange: <br> <select id="mySelect" onchange="onChangeFunc()">
+  <option value="One">One</option>
+  <option value="Two">Two</option>
+  <option value="Three">Three</option>
+  <option value="Four">Four</option>
+  </select> <br> <p id="myP01"></p>
+   
+   onBlur/onFocus: <br> <input type="text" value="SELECT ME." id="myText04" onblur="onBlurFunc()" onfocus="onFocusFunc()"> <br>
+   
+   onMouseMove: <br> 
+   <div id="myDiv04" onmousemove="onMouseMoveFunc(event)" onmouseout="clearCoor()"></div>
+   <p id="myP02"></p>
+   
+   <script>
+    // get the mouse position on the page and display it on the page as a div element with id="mousepos"
+    document.onmousemove = function(e) {
+        var x = e.pageX + 10;
+        var y = e.pageY + 10;
+        var mousepos = document.getElementById("mousepos");
+        mousepos.style.left = x + "px";
+        mousepos.style.top = y + "px";
+        mousepos.innerHTML = "x: " + x + " y: " + y;
+    }
+
+</script>
+<div id="mousepos" style="position: absolute; z-index: 1000; background-color: #000; color: #fff; padding: 5px;"></div>
+ </body>
+ 
+</html>                                                             
