@@ -61,8 +61,8 @@ onKeyDown, onKeyPress, onDragStart, onTouchStart, onTouchEnd, onTouchMove
    <script>
     // get the mouse position on the page and display it on the page as a div element with id="mousepos"
     document.onmousemove = function(e) {
-        var x = e.pageX + 10;
-        var y = e.pageY + 10;
+        var x = e.pageX + 0;
+        var y = e.pageY + 0;
         var mousepos = document.getElementById("mousepos");
         mousepos.style.left = x + "px";
         mousepos.style.top = y + "px";
