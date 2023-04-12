@@ -1,1 +1,69 @@
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import com.sun.speech.freetts.*;
+
+public class ChatBox extends JFrame implements ActionListener {
+    JTextField chatField;
+    JTextArea chatArea;
+    JButton speakBtn;
+    JPanel chatPanel, btnPanel;
+    String speakingText;
+
+    public ChatBox() {
+        setTitle("Chat Box");
+        setSize(600, 500);
+        setLayout(new BorderLayout());
+
+        chatPanel = new JPanel(new BorderLayout());
+        chatField = new JTextField(30);
+        chatArea = new JTextArea();
+        chatArea.setEditable(false);
+        chatPanel.add(chatField, BorderLayout.NORTH);
+        chatPanel.add(new JScrollPane(chatArea), BorderLayout.CENTER);
+
+        btnPanel = new JPanel(new FlowLayout());
+        speakBtn = new JButton("Speak");
+        speakBtn.addActionListener(this);
+        btnPanel.add(speakBtn);
+
+        add(chatPanel, BorderLayout.CENTER);
+        add(btnPanel, BorderLayout.SOUTH);
+
+        setVisible(true);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+
+    public static void main(String[] args) {
+        new ChatBox();
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == speakBtn) {
+            speakingText = chatField.getText();
+
+            Voice voice = new FreeTTSVoice("kevin16");
+            VoiceManager voiceManager = VoiceManager.getInstance();
+            voice = voiceManager.getVoice(voice.getName());
+            voice.allocate();
+
+            try {
+                AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(voice.synthesize(speakingText));
+                Clip clip = AudioSystem.getClip();
+                clip.open(audioInputStream);
+                clip.start();
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+
+            chatArea.append("You: " + speakingText + "\n");
+            chatField.setText("");
+        }
+    }
+}
 
