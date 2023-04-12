@@ -14,9 +14,11 @@
         function sortNumbers() {
             var numbers = document.getElementById("numbers").innerHTML.split(/<br\s*\/?>\s*/);
             numbers.pop();
-            numbers = numbers.map(Number);
-            numbers.sort(function(a, b){return a - b});
-            document.getElementById("numbers").innerHTML = numbers.join("<br>");
+            if (numbers.length > 0) {
+                numbers = numbers.map(Number);
+                numbers.sort(function(a, b){return a - b});
+                document.getElementById("numbers").innerHTML = numbers.join("<br>");
+            }
         }
     </script>
 </head>
