@@ -1,53 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Google Translate Speech Demo</title>
-  <script src="https://apis.google.com/js/api.js"></script>
+  <title>T4A10 Translate Name Zachary</title>
+  <script src="https://code.responsivevoice.org/responsivevoice.js"></script>
 </head>
 <body>
-  <h1>Google Translate Speech Demo</h1>
+  <h1>ResponsiveVoice Speech Demo</h1>
   <label for="sentence">Enter a sentence to speak:</label>
   <input type="text" id="sentence">
   <button onclick="speak()">Speak</button>
   <script>
-    // Load the Google Cloud API
-    gapi.load('client', init);
-
-    // Initialize the API
-    function init() {
-      gapi.client.init({
-        apiKey: 'YOUR_API_KEY',
-        discoveryDocs: ['https://www.googleapis.com/discovery/v1/apis/texttospeech/v1/rest']
-      }).then(function() {
-        console.log('API initialized');
-      }, function(error) {
-        console.log('Error initializing API:', error);
-      });
-    }
-
     // Speak the entered sentence
     function speak() {
       var sentence = document.getElementById('sentence').value;
-      var audioConfig = {
-        audioEncoding: 'MP3'
-      };
-      var voice = {
-        languageCode: 'en-US',
-        ssmlGender: 'FEMALE'
-      };
-      var request = {
-        input: {
-          text: sentence
-        },
-        voice: voice,
-        audioConfig: audioConfig
-      };
-      gapi.client.texttospeech.text.synthesize(request).then(function(response) {
-        var audio = new Audio('data:audio/mp3;base64,' + response.result.audioContent);
-        audio.play();
-      }, function(error) {
-        console.log('Error synthesizing speech:', error);
-      });
+      responsiveVoice.speak(sentence);
     }
   </script>
 </body>
