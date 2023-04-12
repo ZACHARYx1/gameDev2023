@@ -1,26 +1,20 @@
-
-
-
-
-
-<script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-<script src='https://code.responsivevoice.org/responsivevoice.js'></script>
-
-<script>
-    function googleTranslateElementInit() {
-  new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'en,fr,de,ru', layout:google.translate.TranslateElement.InlineLayout.SIMPLE, autoDisplay: false}, 'google_translate_element');
-
+<!DOCTYPE html>
+<html>
+<head>
+  <title>T4A10 Translate Name Zachary</title>
+  <script src="https://code.responsivevoice.org/responsivevoice.js"></script>
+</head>
+<body>
+  <h1>T4A10 Translate Name Zachary</h1>
+  <label for="sentence">Enter a sentence to speak:</label>
+  <input type="text" id="sentence">
+  <button onclick="speak()">Speak</button>
+  <script>
+    // Speak the entered sentence
+    function speak() {
+      var sentence = document.getElementById('sentence').value;
+      responsiveVoice.speak(sentence);
     }
-</script>
-
-
-
-<h1 align=center>T4A10-Translate-Name</h1>
-
-<div id="google_translate_element">I really like javascript</div>
-
-
-<input  type="button" value="initilize speak" onclick="{  
-   let myVoice = 'Russian Female'
-   responsiveVoice.speak(document.getElementById('google_translate_element').innerText, myVoice, {pitch: 1, rate: 1, volume : 1})                                              
-}"><br><br>
+  </script>
+</body>
+</html>
