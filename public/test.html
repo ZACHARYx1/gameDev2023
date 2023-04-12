@@ -12,9 +12,7 @@
         }
 
         function sortNumbers() {
-            var numbers = document.getElementById("numbers").innerHTML.split("<br>").map(function(num) {
-                return num.trim();
-            });
+            var numbers = document.getElementById("numbers").innerHTML.split("<br>");
             numbers.pop();
             numbers = numbers.map(Number);
             numbers.sort(function(a, b){return a - b});
