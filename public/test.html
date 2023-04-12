@@ -14,8 +14,7 @@
         function sortNumbers() {
             var numbers = document.getElementById("numbers").innerHTML;
             if (numbers.trim() !== "") {
-                numbers = numbers.split("<br>");
-                numbers.pop();
+                numbers = numbers.split("<br>");             
                 numbers = numbers.map(Number);
                 numbers.sort(function(a, b){return a - b});
                 document.getElementById("numbers").innerHTML = numbers.join("<br>");
