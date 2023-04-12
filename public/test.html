@@ -12,18 +12,21 @@
         }
 
         function sortNumbers() {
-            var numbers = document.getElementById("numbers").innerHTML.split("<br>");
-            numbers.pop();
-            numbers = numbers.map(Number);
-            numbers.sort(function(a, b){return a - b});
-            document.getElementById("numbers").innerHTML = numbers.join("<br>");
+            var numbers = document.getElementById("numbers").innerHTML;
+            if (numbers.trim() !== "") {
+                numbers = numbers.split("<br>");
+                numbers.pop();
+                numbers = numbers.map(Number);
+                numbers.sort(function(a, b){return a - b});
+                document.getElementById("numbers").innerHTML = numbers.join("<br>");
+            }
         }
     </script>
 </head>
 <body>
     <h1>Random Number Sorter</h1>
-    <p id="numbers"></p>
     <button onclick="generateNumbers()">Generate Random Numbers</button>
     <button onclick="sortNumbers()">Sort Numbers</button>
+    <p id="numbers"></p>
 </body>
 </html>
