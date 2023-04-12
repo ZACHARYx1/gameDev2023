@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Random Number Sorter</title>
+    <script type="text/javascript">
+        function generateNumbers() {
+            var numbers = [];
+            for (var i = 0; i < 3; i++) {
+                numbers.push(Math.floor(Math.random() * 100));
+            }
+            document.getElementById("numbers").innerHTML = numbers.join("<br>");
+        }
+
+        function sortNumbers() {
+            var numbers = document.getElementById("numbers").innerHTML.split("<br>");
+            numbers.pop();
+            numbers = numbers.map(Number);
+            numbers.sort(function(a, b){return a - b});
+            document.getElementById("numbers").innerHTML = numbers.join("<br>");
+        }
+    </script>
+</head>
+<body>
+    <h1>Random Number Sorter</h1>
+    <p id="numbers"></p>
+    <button onclick="generateNumbers()">Generate Random Numbers</button>
+    <button onclick="sortNumbers()">Sort Numbers</button>
+</body>
+</html>
