@@ -8,12 +8,23 @@
   <h1>T4A10 Translate Name Zachary</h1>
   <label for="sentence">Enter a sentence to speak:</label>
   <input type="text" id="sentence">
+  <label for="voice">Select a voice:</label>
+  <select id="voice">
+    <option value="UK English Female">UK English Female</option>
+    <option value="UK English Male">UK English Male</option>
+    <option value="US English Female">US English Female</option>
+    <option value="US English Male">US English Male</option>
+    <option value="Spanish Female">Spanish Female</option>
+    <option value="French Female">French Female</option>
+    <option value="German Female">German Female</option>
+  </select>
   <button onclick="speak()">Speak</button>
   <script>
     // Speak the entered sentence
     function speak() {
       var sentence = document.getElementById('sentence').value;
-      responsiveVoice.speak(sentence);
+      var voice = document.getElementById('voice').value;
+      responsiveVoice.speak(sentence, voice);
     }
   </script>
 </body>
