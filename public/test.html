@@ -1,1 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Local Web Storage Example</title>
+    <script>
+      // Check if local storage is available
+      if (typeof(Storage) !== "undefined") {
+        // Retrieve stored data
+        var storedData = localStorage.getItem("exampleData");
+        if (storedData !== null) {
+          document.getElementById("stored-data").innerHTML = storedData;
+        }
+        
+        // Store new data
+        function storeData() {
+          var inputData = document.getElementById("input-data").value;
+          localStorage.setItem("exampleData", inputData);
+          document.getElementById("stored-data").innerHTML = inputData;
+        }
+      } else {
+        document.getElementById("status").innerHTML = "Sorry, your browser doesn't support local storage";
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Local Web Storage Example</h1>
+    <div id="status"></div>
+    <label for="input-data">Enter some data:</label>
+    <input type="text" id="input-data">
+    <button onclick="storeData()">Store Data</button>
+    <br>
+    <br>
+    <div id="stored-data"></div>
+  </body>
+</html>
 
