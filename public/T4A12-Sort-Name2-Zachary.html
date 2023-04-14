@@ -1,31 +1,33 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>T4A12 Sort by Zachary</title>
-    <script type="text/javascript">
-        function generateNumbers() {
-            var numbers = [];
-            for (var i = 0; i < 6; i++) {
-                numbers.push(Math.floor(Math.random() * 10));
-            }
-            document.getElementById("numbers").innerHTML = numbers.join("<br>");
-        }
+<h1 align=center>T4A12 Sort by Zachary</h1>
 
-        function sortNumbers() {
-            var numbers = document.getElementById("numbers").innerHTML;
-            if (numbers.trim() !== "") {
-                numbers = numbers.split("<br>");             
-                numbers = numbers.map(Number);
-                numbers.sort(function(a, b){return a - b});
-                document.getElementById("numbers").innerHTML = numbers.join("<br>");
-            }
-        }
-    </script>
-</head>
-<body>
-    <h1>T4A12 Sort by Zachary</h1>
-    <button onclick="generateNumbers()">Set Random</button>
-    <button onclick="sortNumbers()">Sort Numbers</button>
-    <p id="numbers"></p>
-</body>
-</html>
+<script>
+   let myMax = 3      // 52 when working
+   let myCards = new Array(myMax)  
+</script>
+
+<input type=button value="Set Random" onclick="{
+  for ( let myLoop = 0;   myLoop < myMax;  myLoop++){
+     myCards[myLoop] = Math.floor(Math.random()*10)
+  }
+}">
+
+<input type=button value="Show" onclick="{
+  let myTemp = ''
+  for ( let myLoop = 0;   myLoop < myMax;  myLoop++){
+     myTemp += myLoop + ' = '+ myCards[myLoop] + '<br>'
+  }
+   document.getElementById('myDiv01').innerHTML = myTemp
+}">
+
+<input type=button value="Sort" onclick="{
+  myCards.sort(function(a, b){return a-b})
+  let myTemp = ''
+  for ( let myLoop = 0;   myLoop < myMax;  myLoop++){
+     myTemp += myLoop + ' = '+ myCards[myLoop] + '<br>'
+  }
+   document.getElementById('myDiv01').innerHTML = myTemp
+}">
+
+<dir id="myDiv01"></dir>
+
+
