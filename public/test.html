@@ -1,70 +1,72 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Move Background and Image</title>
-	<style>
-		body {
-			background-repeat: repeat;
-			background-size: 80%;
-			background-image: url("https://images.unsplash.com/photo-1516214104703-d870798883c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MTF8fHxlbnwwfHx8fA%3D%3D&w=1000&q=80");
-			animation: moveLeft 20s linear infinite;
-		}
+    <title>Move Background and Image</title>
+    <style>
+        body {
+            background-repeat: repeat;
+            background-size: 80%;
+            background-image: url("https://images.unsplash.com/photo-1516214104703-d870798883c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MTF8fHxlbnwwfHx8fA%3D%3D&w=1000&q=80");
+        }
+        #myImage01 {
+            position: relative;
+            width: 250px;
+            height: 250px;
+            top: 250px;
+            left: 300px;
+        }
+        #buttonContainer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            padding: 10px;
+        }
+    </style>
+    <script>
+        let myGlobalX = 300;
+        let myGlobalY = 250;
+        let isBackgroundMoving = false; // New boolean variable to track background movement
+        let bgInterval; // New interval variable to store the interval ID
 
-		@keyframes moveLeft {
-			from { background-position: 0 0; }
-			to { background-position: -2000px 0; }
-		}
+        function moveBackground() {
+            if (!isBackgroundMoving) return; // If background is not moving, return early
+            document.body.style.backgroundPosition = myGlobalX + "px 0px";
+            myGlobalX -= 10;
+        }
 
-		#myImage01 {
-			position: relative;
-			width: 250px;
-			height: 250px;
-			top: 250px;
-			left: 300px;
-		}
+        function toggleBackgroundMovement() {
+            isBackgroundMoving = !isBackgroundMoving; // Toggle the boolean variable
+            if (isBackgroundMoving) {
+                bgInterval = setInterval(moveBackground, 50); // Start moving the background
+            } else {
+                clearInterval(bgInterval); // Stop moving the background
+            }
+        }
 
-		#buttonContainer {
-			position: absolute;
-			top: 0;
-			left: 0;
-			padding: 10px;
-		}
-	</style>
-	<script>
-		let myGlobalX = 300;
-		let myGlobalY = 250;
-
-		function moveImage(direction) {
-			let img = document.getElementById("myImage01");
-			if (direction === "up") {
-				myGlobalY -= 10;
-				img.style.top = myGlobalY + "px";
-			} else if (direction === "down") {
-				myGlobalY += 10;
-				img.style.top = myGlobalY + "px";
-			} else if (direction === "right") {
-				myGlobalX += 10;
-				img.style.left = myGlobalX + "px";
-			} else if (direction === "left") {
-				myGlobalX -= 10;
-				img.style.left = myGlobalX + "px";
-			}
-		}
-	</script>
+        function moveImage(direction) {
+            let img = document.getElementById("myImage01");
+            if (direction === "up") {
+                myGlobalY -= 10;
+                img.style.top = myGlobalY + "px";
+            } else if (direction === "down") {
+                myGlobalY += 10;
+                img.style.top = myGlobalY + "px";
+            } else if (direction === "right") {
+                myGlobalX += 10;
+                img.style.left = myGlobalX + "px";
+            } else if (direction === "left") {
+                myGlobalX -= 10;
+                img.style.left = myGlobalX + "px";
+            }
+        }
+    </script>
 </head>
 <body>
-	<div id="buttonContainer">
-		<button onclick="moveImage('up')">Move Up</button>
-		<button onclick="moveImage('down')">Move Down</button>
-		<button onclick="moveImage('left')">Move Left</button>
-		<button onclick="moveImage('right')">Move Right</button>
-		<button onclick="moveLeft()">Move Background Left</button>
-	</div>
-	<img id="myImage01" src="https://media.istockphoto.com/id/520964997/photo/rainy-day-moose.jpg?s=612x612&w=0&k=20&c=zu3K0DmK-E_-CNpHFBOqNQqI3Y84M65UHyig-kBbAc0=">
-	<script>
-		function moveLeft() {
-			document.body.style.animationPlayState = "running";
-		}
-	</script>
-</body>
-</html>
+    <div id="buttonContainer">
+        <button onclick="moveImage('up')">Move Up</button>
+        <button onclick="moveImage('down')">Move Down</button>
+        <button onclick="moveImage('left')">Move Left</button>
+        <button onclick="moveImage('right')">Move Right</button>
+        <button onclick="toggleBackgroundMovement()">Toggle Background Movement</button> <!-- New button to toggle background movement -->
+    </div>
+    <img id="myImage01" src="https://media.istockphoto.com/id/520964997/photo/rainy-day-moose.jpg?s=612x612&w=0&k=20&c=zu3K0
