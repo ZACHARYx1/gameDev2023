@@ -24,9 +24,6 @@
 		.bg-moving {
 			animation: moveBackground 10s linear infinite;
 		}
-		.bg-paused {
-			animation-play-state: paused;
-		}
 		@keyframes moveBackground {
 			from {
 				background-position: 0 0;
@@ -40,16 +37,14 @@
 		let myGlobalX = 300;
 		let myGlobalY = 250;
 		let bgMovingEnabled = false;
-		let body = document.getElementsByTagName("body")[0];
 		
 		function toggleBackgroundMoving() {
 			bgMovingEnabled = !bgMovingEnabled;
+			let body = document.getElementsByTagName("body")[0];
 			if (bgMovingEnabled) {
 				body.classList.add("bg-moving");
-				body.classList.remove("bg-paused");
 			} else {
 				body.classList.remove("bg-moving");
-				body.classList.add("bg-paused");
 			}
 		}
 		
@@ -79,6 +74,6 @@
 		<button onclick="moveImage('right')">Move Right</button>
 		<button onclick="toggleBackgroundMoving()">Toggle Background Moving</button>
 	</div>
-	<img id="myImage01" src="https://media.istockphoto.com/id/520964997/photo/rainy-day-moose.jpg?s=612x612&w=0&k=20&c=zu3K0DmK-E_-CNpHFBOqNQqI3Y84M65.com/id/520964997/photo/rainy-day-moose.jpg?s=612x612&w=0&k=20&c=zu3K0DmK-E_-CNpHFBOqNQqI3Y84M65UHyig-kBbAc0=">
+	<img id="myImage01" src="https://media.istockphoto.com/id/520964997/photo/rainy-day-moose.jpg?s=612x612&w=0&k=20&c=zu3K0DmK-E_-CNpHFBOqNQqI3Y84M65UHyig-kBbAc0=">
 </body>
 </html>
