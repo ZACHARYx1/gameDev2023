@@ -1,34 +1,55 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <style>
-      body {
-        background-image: url("myBackground01.jpg");
-        background-repeat: repeat;
-        background-size: 80%;
-      }
-    </style>
-  </head>
-  <body id="myBody">
-    <input type="button" value="background move left" onclick="{
-      myGlobalX -= 5;
-      const myTemp = myGlobalX + 'px 0px';
-      document.getElementById('myBody').style.backgroundPosition = myTemp;
-    }" style="position: absolute; top: 0; left: 0;">
-    <input type="button" value="Auto Background Left" onclick="{
-      clearInterval(myClock);
-      myClock = setInterval(function() {
-        document.getElementById('myButton01').click();
-      }, 100);
-    }" style="position: absolute; top: 0; left: 120px;">
-    <input type="button" value="Image Right" onclick="{
-      const myImage01 = document.getElementById('myImage01');
-      myImage01.style.left = parseInt(myImage01.style.left) + 10 + 'px';
-    }" style="position: absolute; top: 0; left: 240px;"><br><br>
-    <img id="myImage01" style="position:relative; width:250px; height:250px; top:250px; left:300px;" src="myImage01.jpg">
-    <script>
-      let myGlobalX = 0;
-      let myClock;
-    </script>
-  </body>
+<head>
+	<title>Move Background and Image</title>
+	<style>
+		body {
+			background-repeat: repeat;
+			background-size: 80%;
+			background-image: url("https://images.unsplash.com/photo-1516214104703-d870798883c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MTF8fHxlbnwwfHx8fA%3D%3D&w=1000&q=80");
+		}
+		#myImage01 {
+			position: relative;
+			width: 250px;
+			height: 250px;
+			top: 250px;
+			left: 300px;
+		}
+		#buttonContainer {
+			position: absolute;
+			top: 0;
+			left: 0;
+			padding: 10px;
+		}
+	</style>
+	<script>
+		let myGlobalX = 300;
+		let myGlobalY = 250;
+		function moveImage(direction) {
+			let img = document.getElementById("myImage01");
+			if (direction === "up") {
+				myGlobalY -= 10;
+				img.style.top = myGlobalY + "px";
+			} else if (direction === "down") {
+				myGlobalY += 10;
+				img.style.top = myGlobalY + "px";
+			} else if (direction === "right") {
+				myGlobalX += 10;
+				img.style.left = myGlobalX + "px";
+			} else if (direction === "left") {
+				myGlobalX -= 10;
+				img.style.left = myGlobalX + "px";
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="buttonContainer">
+		<button onclick="moveImage('up')">Move Up</button>
+		<button onclick="moveImage('down')">Move Down</button>
+		<button onclick="moveImage('left')">Move Left</button>
+		<button onclick="moveImage('right')">Move Right</button>
+	</div>
+	<img id="myImage01" src="https://media.istockphoto.com/id/520964997/photo/rainy-day-moose.jpg?s=612x612&w=0&k=20&c=zu3K0DmK-E_-CNpHFBOqNQqI3Y84M65UHyig-kBbAc0=">
+</body>
 </html>
