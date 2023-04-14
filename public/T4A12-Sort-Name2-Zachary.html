@@ -3,26 +3,19 @@
 <script>
    let myMax = 3      // 52 when working
    let myCards = new Array(myMax)  
-   let sorted = false  // set flag to false initially
+   let sorted = false  
 </script>
 
 <input type=button value="Set Random" onclick="{
   for ( let myLoop = 0;   myLoop < myMax;  myLoop++){
      myCards[myLoop] = Math.floor(Math.random()*10)
   }
-  sorted = false  // reset flag when new random values are generated
 }">
 
 <input type=button value="Show" onclick="{
   let myTemp = ''
-  if (sorted) {  // if array is already sorted, display sorted array
     for ( let myLoop = 0;   myLoop < myMax;  myLoop++){
       myTemp += myLoop + ' = '+ myCards[myLoop] + '<br>'
-    }
-  } else {  // if array is not sorted, display unsorted array
-    for ( let myLoop = 0;   myLoop < myMax;  myLoop++){
-      myTemp += myLoop + ' = '+ myCards[myLoop] + '<br>'
-    }
   }
    document.getElementById('myDiv01').innerHTML = myTemp
 }">
