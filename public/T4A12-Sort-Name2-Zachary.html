@@ -2,30 +2,34 @@
 
 <script>
    let myMax = 3      // 52 when working
-   let myCards = new Array(myMax)  
+   let myCards = new Array(myMax)  // initialize array
+   let sorted = false  // set flag to false initially
 </script>
 
 <input type=button value="Set Random" onclick="{
   for ( let myLoop = 0;   myLoop < myMax;  myLoop++){
      myCards[myLoop] = Math.floor(Math.random()*10)
   }
+  sorted = false  // reset flag when new random values are generated
 }">
 
 <input type=button value="Show" onclick="{
   let myTemp = ''
-  for ( let myLoop = 0;   myLoop < myMax;  myLoop++){
-     myTemp += myLoop + ' = '+ myCards[myLoop] + '<br>'
+  if (sorted) {  // if array is already sorted, display sorted array
+    for ( let myLoop = 0;   myLoop < myMax;  myLoop++){
+      myTemp += myLoop + ' = '+ myCards[myLoop] + '<br>'
+    }
+  } else {  // if array is not sorted, display unsorted array
+    for ( let myLoop = 0;   myLoop < myMax;  myLoop++){
+      myTemp += myLoop + ' = '+ myCards[myLoop] + '<br>'
+    }
   }
    document.getElementById('myDiv01').innerHTML = myTemp
 }">
 
 <input type=button value="Sort" onclick="{
-  myCards.sort(function(a, b){return a-b})
-  let myTemp = ''
-  for ( let myLoop = 0;   myLoop < myMax;  myLoop++){
-     myTemp += myLoop + ' = '+ myCards[myLoop] + '<br>'
-  }
-   document.getElementById('myDiv01').innerHTML = myTemp
+  myCards.sort(function(a, b){return a-b})  // sort the array
+  sorted = true  // set flag to true after sorting
 }">
 
 <dir id="myDiv01"></dir>
