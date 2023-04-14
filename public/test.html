@@ -25,14 +25,17 @@
 			let myImage = document.getElementById('myImage01');
 			switch(direction) {
 				case 'up':
-					myImage.style.top = parseInt(myImage.style.top) - 10 + 'px';
+					myImage01.style.top = parseInt(myImage.style.top) - 10 + 'px';
 					break;
 				case 'down':
-					myImage.style.top = parseInt(myImage.style.top) + 10 + 'px';
+					myImage01.style.top = parseInt(myImage.style.top) + 10 + 'px';
 					break;
 				case 'right':
-					myImage.style.left = parseInt(myImage.style.left) + 10 + 'px';
+					myImage01.style.left = parseInt(myImage.style.left) + 10 + 'px';
 					break;
+				case 'left':
+					myImage01.style.left = parseInt(myImage.style.left) - 10 + 'px';
+					break;	
 				default:
 					break;
 			}
@@ -60,6 +63,9 @@
 	}">
 	<input type="button" value="Image Right" onclick="{
 		moveImage('right');
+	}">
+	<input type="button" value="Image Left" onclick="{
+		moveImage('left');						  						  
 	}">
 	<br><br>
 	<img id="myImage01" src="https://media.istockphoto.com/id/520964997/photo/rainy-day-moose.jpg?s=612x612&w=0&k=20&c=zu3K0DmK-E_-CNpHFBOqNQqI3Y84M65UHyig-kBbAc0=">
