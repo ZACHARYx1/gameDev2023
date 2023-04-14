@@ -1,1 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Encryption and Decryption</title>
+</head>
+<body>
+	<label for="message">Message:</label>
+	<input type="text" id="message"><br><br>
+
+	<input type="button" value="Encrypt" onclick="encrypt()"><br><br>
+
+	<label for="encrypted">Encrypted Message:</label>
+	<input type="text" id="encrypted"><br><br>
+
+	<input type="button" value="Decrypt" onclick="decrypt()"><br><br>
+
+	<label for="decrypted">Decrypted Message:</label>
+	<input type="text" id="decrypted"><br><br>
+
+	<script>
+		function encrypt() {
+			let message = document.getElementById("message").value.toLowerCase();
+			let key = 3;
+			let encrypted = "";
+
+			for (let i = 0; i < message.length; i++) {
+				let char = message[i];
+				if (char.match(/[a-z]/i)) {
+					let code = message.charCodeAt(i);
+					if (code >= 97 && code <= 122) {
+						char = String.fromCharCode(((code - 97 + key) % 26) + 97);
+					}
+				}
+				encrypted += char;
+			}
+
+			document.getElementById("encrypted").value = encrypted;
+		}
+
+		function decrypt() {
+			let encrypted = document.getElementById("encrypted").value.toLowerCase();
+			let key = 3;
+			let decrypted = "";
+
+			for (let i = 0; i < encrypted.length; i++) {
+				let char = encrypted[i];
+				if (char.match(/[a-z]/i)) {
+					let code = encrypted.charCodeAt(i);
+					if (code >= 97 && code <= 122) {
+						char = String.fromCharCode(((code - 97 - key + 26) % 26) + 97);
+					}
+				}
+				decrypted += char;
+			}
+
+			document.getElementById("decrypted").value = decrypted;
+		}
+	</script>
+</body>
+</html>
 
