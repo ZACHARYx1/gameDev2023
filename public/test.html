@@ -25,6 +25,7 @@
 	<script>
 		let myGlobalX = 300;
 		let myGlobalY = 250;
+		let intervalID = null;
 		function moveImage(direction) {
 			let img = document.getElementById("myImage01");
 			if (direction === "up") {
@@ -36,10 +37,26 @@
 			} else if (direction === "right") {
 				myGlobalX += 10;
 				img.style.left = myGlobalX + "px";
+				clearInterval(intervalID);
 			} else if (direction === "left") {
 				myGlobalX -= 10;
 				img.style.left = myGlobalX + "px";
+				clearInterval(intervalID);
 			}
+		}
+		function startAutoScroll() {
+			intervalID = setInterval(function() {
+				let body = document.getElementById("myBody");
+				let bgPosition = body.style.backgroundPosition || "0px 0px";
+				let bgPositionValues = bgPosition.split(" ");
+				let bgPosX = parseInt(bgPositionValues[0]) - 5;
+				let bgPosY = parseInt(bgPositionValues[1]);
+				body.style.backgroundPosition = bgPosX + "px " + bgPosY + "px";
+			}, 100);
+		}
+		function stopAutoScroll() {
+			clearInterval(intervalID);
+			intervalID = null;
 		}
 	</script>
 </head>
@@ -49,6 +66,8 @@
 		<button onclick="moveImage('down')">Move Down</button>
 		<button onclick="moveImage('left')">Move Left</button>
 		<button onclick="moveImage('right')">Move Right</button>
+		<button onclick="startAutoScroll()">Auto Background Left</button>
+		<button onclick="stopAutoScroll()">Stop Auto Scroll</button>
 	</div>
 	<img id="myImage01" src="https://media.istockphoto.com/id/520964997/photo/rainy-day-moose.jpg?s=612x612&w=0&k=20&c=zu3K0DmK-E_-CNpHFBOqNQqI3Y84M65UHyig-kBbAc0=">
 </body>
