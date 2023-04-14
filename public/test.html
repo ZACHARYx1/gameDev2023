@@ -19,49 +19,29 @@
 	<script>
 		let myGlobalX = 0;
 		let myGlobalY = 0;
-		let myClock;
-		
 		function moveImage(direction) {
-			let myImage = document.getElementById('myImage01');
-			switch(direction) {
-				case 'up':
-					myImage.style.top = parseInt(myImage.style.top) - 10 + 'px';
-					break;
-				case 'down':
-					myImage.style.top = parseInt(myImage.style.top) + 10 + 'px';
-					break;
-				case 'right':
-					myImage.style.left = parseInt(myImage.style.left) + 10 + 'px';
-					break;
-				default:
-					break;
+			let img = document.getElementById("myImage01");
+			if (direction === "up") {
+				myGlobalY -= 10;
+				img.style.top = myGlobalY + "px";
+			} else if (direction === "down") {
+				myGlobalY += 10;
+				img.style.top = myGlobalY + "px";
+			} else if (direction === "right") {
+				myGlobalX += 10;
+				img.style.left = myGlobalX + "px";
+			} else if (direction === "left") {
+				myGlobalX -= 10;
+				img.style.left = myGlobalX + "px";
 			}
 		}
 	</script>
 </head>
-<body id="myBody">
-	<input id="myButton01" type="button" value="Background Move Left" onclick="{
-		let myTemp = '100px 0px';
-		myGlobalX -= 5;
-		myTemp =  myGlobalX + 'px 0px';
-		document.getElementById('myBody').style.backgroundPosition = myTemp;
-	}">
-	<input type="button" value="Auto Background Left" onclick="{
-		clearInterval(myClock);
-		myClock = setInterval(function(){
-			document.getElementById('myButton01').click();
-		}, 100);
-	}">
-	<input type="button" value="Image Up" onclick="{
-		moveImage('up');
-	}">
-	<input type="button" value="Image Down" onclick="{
-		moveImage('down');
-	}">
-	<input type="button" value="Image Right" onclick="{
-		moveImage('right');
-	}">
-	<br><br>
-	<img id="myImage01" src="https://media.istockphoto.com/id/520964997/photo/rainy-day-moose.jpg">
+<body>
+	<img id="myImage01" src="https://media.istockphoto.com/id/520964997/photo/rainy-day-moose.jpg?s=612x612&w=0&k=20&c=zu3K0DmK-E_-CNpHFBOqNQqI3Y84M65UHyig-kBbAc0=">
+	<button onclick="moveImage('up')">Move Up</button>
+	<button onclick="moveImage('down')">Move Down</button>
+	<button onclick="moveImage('left')">Move Left</button>
+	<button onclick="moveImage('right')">Move Right</button>
 </body>
 </html>
