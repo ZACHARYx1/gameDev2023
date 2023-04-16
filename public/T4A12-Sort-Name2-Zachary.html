@@ -28,9 +28,16 @@
         myTemp = myCards[myLoop]
         myCards[myLoop] = myCards[myLoop+1]
         myCards[myLoop+1] = myTemp
-       }                                  
-        //document.getElementById('myDiv01').innerHTML = myTemp                                   
+  if(myCards[myLoop] > myCards[myLoop+1] ){
+        myTemp = myCards[myLoop]
+        myCards[myLoop] = myCards[myLoop+1]
+        myCards[myLoop+1] = myTemp
+       }
+                        
+        //document.getElementById('myDiv01').innerHTML = myTemp                                  
+   }
   }
 }">
 
-<dir id="myDiv01"></div>
+<div id="myDiv01"></div>
+
