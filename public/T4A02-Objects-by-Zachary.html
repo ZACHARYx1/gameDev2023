@@ -1,11 +1,11 @@
 version 0.0.1
 <h2 align=center>T4A02-Object-by-Zachary</h2>
 
-<a href="https://www.w3schools.com/js/js_objects.asp"> good refrence to Javascript objects</a><br>
+<a href="https://www.w3schools.com/js/js_objects.asp"> Good refrence to Javascript objects</a><br>
 
-objects are stored named variables
+Objects are stored named variables
 
-<h4> examples objects code </h4>
+<h4> Examples objects code </h4>
 <pre>
 let myperson = {
    "firstame" : "Lucas",
@@ -21,18 +21,27 @@ let myperson = {
     nothing: <input type=text id="MyText01" value="Useless at the moment"><br>
     
     
-<input type=button value="Example object set and show" onClick="{
+<input type=button value="Information" onClick="{
                                                                     
  let myPerson = {
-   'firstame'  : 'Lucas',
-   'lastname'  : 'Chorm', 
-   'age'       :  17,
-   'eyeColor'  : 'brown' 
+   'firstName'  : 'Zachary',
+   'middleName'  : 'Chen',                                             
+   'lastName'  : 'Fullard', 
+   'age'       :  16,
+   'eyeColor'  : 'Very dark brown'
+   'height'  : '178cm'
+   'weight'  : '68kg'                                              
 }
                    
   document.getElementById('MyDiv01').innerHTML = '<br>myPerson Object has properties: <br>'
-  document.getElementById('MyDiv01').innerHTML += 'firstname: ' + myPerson.firstName + '<br>'
-  document.getElementById('MyDiv01').innerHTML += 'You do the others <br>'
+  document.getElementById('MyDiv01').innerHTML += 'Firstname: ' + myPerson.firstName + '<br>'
+  document.getElementById('MyDiv01').innerHTML += 'Middlename: ' + myPerson.middletName + '<br>'                                              
+  document.getElementById('MyDiv01').innerHTML += 'Lastname: ' + myPerson.lastName + '<br>'
+  document.getElementById('MyDiv01').innerHTML += 'Age: ' + myPerson.age + '<br>'
+  document.getElementById('MyDiv01').innerHTML += 'Eye colour: ' + myPerson.eyeColour + '<br>'
+  document.getElementById('MyDiv01').innerHTML += 'Height: ' + myPerson.height + '<br>'
+  document.getElementById('MyDiv01').innerHTML += 'Weight: ' + myPerson.weight + '<br>'
+  
                                                     
 }">
                                                     
