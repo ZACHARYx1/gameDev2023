@@ -13,6 +13,6 @@ School https://zacharyx1.github.io/gameDev2023/public/index.html
 
 
 
-<h1> Credit to Mr. Daniel for the Mr. Ellis photo. </h1>
+
 
 
