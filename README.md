@@ -1,4 +1,4 @@
-# gameDev2023 DO TAXES ASSIGNMENT
+# gameDev2023 
 School https://zacharyx1.github.io/gameDev2023/public/index.html
 
 <!DOCTYPE html>
