@@ -38,15 +38,19 @@ let myPerson = {
 			   'weight'     : '68kg',                                                         
 			}
 
-			document.getElementById('myDiv01').innerHTML = '<br> myPerson Object has properties: <br>'
-			document.getElementById('myDiv01').innerHTML += 'firstName: ' + myPerson.firstName + '<br>'
-			document.getElementById('myDiv01').innerHTML += 'middleName: ' + myPerson.middleName + '<br>'                                               
-			document.getElementById('myDiv01').innerHTML += 'lastName: ' + myPerson.lastName + '<br>'
-			document.getElementById('myDiv01').innerHTML += 'age: ' + myPerson.age + '<br>'
-			document.getElementById('myDiv01').innerHTML += 'eyeColor: ' + myPerson.eyeColor + '<br>'
-			document.getElementById('myDiv01').innerHTML += 'hairColor: ' + myPerson.hairColor + '<br>'
-			document.getElementById('myDiv01').innerHTML += 'height: ' + myPerson.height + '<br>'
-			document.getElementById('myDiv01').innerHTML += 'weight: ' + myPerson.weight + '<br>'                                                
+			if (document.getElementById('myDiv01')) {
+				document.getElementById('myDiv01').innerHTML = '<br> myPerson Object has properties: <br>'
+				document.getElementById('myDiv01').innerHTML += 'firstName: ' + myPerson.firstName + '<br>'
+				document.getElementById('myDiv01').innerHTML += 'middleName: ' + myPerson.middleName + '<br>'                                               
+				document.getElementById('myDiv01').innerHTML += 'lastName: ' + myPerson.lastName + '<br>'
+				document.getElementById('myDiv01').innerHTML += 'age: ' + myPerson.age + '<br>'
+				document.getElementById('myDiv01').innerHTML += 'eyeColor: ' + myPerson.eyeColor + '<br>'
+				document.getElementById('myDiv01').innerHTML += 'hairColor: ' + myPerson.hairColor + '<br>'
+				document.getElementById('myDiv01').innerHTML += 'height: ' + myPerson.height + '<br>'
+				document.getElementById('myDiv01').innerHTML += 'weight: ' + myPerson.weight + '<br>'
+			} else {
+				console.error('Element with id "myDiv01" not found.')
+			}
 		}
 
 		window.onload = function() {
