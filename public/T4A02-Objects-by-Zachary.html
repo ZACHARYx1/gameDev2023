@@ -7,7 +7,7 @@ Objects are stored named variables
 
 <h4> Examples objects code </h4>
 <pre>
-let myperson = {
+let myPerson = {
    "firstame" : "Lucas",
    "lastname" : "Chorm", 
    "age" : 17,
@@ -21,7 +21,7 @@ let myperson = {
     nothing: <input type=text id="MyText01" value="Useless at the moment"><br>
     
     
-<input type=button value="Example Object Set and Show" onClick="{
+<input type=button value="My Information" onClick="{
                                                                     
  let myPerson = {
    'firstName'  : 'Zachary',
@@ -33,16 +33,14 @@ let myperson = {
    'weight'  : '68kg'                                              
 }
                    
-  document.getElementById('MyDiv01').innerHTML = '<br>myPerson Object has properties: <br>'
-  document.getElementById('MyDiv01').innerHTML += 'Firstname: ' + myPerson.firstName + '<br>'
-  document.getElementById('MyDiv01').innerHTML += 'Middlename: ' + myPerson.middletName + '<br>'                                              
-  document.getElementById('MyDiv01').innerHTML += 'Lastname: ' + myPerson.lastName + '<br>'
-  document.getElementById('MyDiv01').innerHTML += 'Age: ' + myPerson.age + '<br>'
-  document.getElementById('MyDiv01').innerHTML += 'Eye colour: ' + myPerson.eyeColour + '<br>'
-  document.getElementById('MyDiv01').innerHTML += 'Height: ' + myPerson.height + '<br>'
-  document.getElementById('MyDiv01').innerHTML += 'Weight: ' + myPerson.weight + '<br>'
-  
-                                                    
+  document.getElementById('MyDiv01').innerHTML = '<br>myPerson Object has properties: <br>';
+  document.getElementById('MyDiv01').innerHTML += 'Firstname: ' + myPerson.firstName + '<br>';
+  document.getElementById('MyDiv01').innerHTML += 'Middlename: ' + myPerson.middletName + '<br>' ;                                             
+  document.getElementById('MyDiv01').innerHTML += 'Lastname: ' + myPerson.lastName + '<br>';
+  document.getElementById('MyDiv01').innerHTML += 'Age: ' + myPerson.age + '<br>';
+  document.getElementById('MyDiv01').innerHTML += 'Eye colour: ' + myPerson.eyeColour + '<br>';
+  document.getElementById('MyDiv01').innerHTML += 'Height: ' + myPerson.height + '<br>';
+  document.getElementById('MyDiv01').innerHTML += 'Weight: ' + myPerson.weight + '<br>';                                                  
 }">
                                                     
 <div id="MyDiv01">...</div>
