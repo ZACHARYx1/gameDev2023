@@ -23,24 +23,27 @@ let myPerson = {
     
 <input type=button value="My Information" onClick="{
                                                                     
- let myPerson = {
+  let myPerson = {
    'firstName'  : 'Zachary',
-   'middleName' : 'Chen',                                             
-   'lastName'   : 'Fullard', 
+   'middleName' : 'Chen',                                               
+   'lastName'   : 'Fullard',
    'age'        : '16',
-   'eyeColour'  : 'Very dark brown',
+   'eyeColor'   : 'Dark Brown',
+   'hairColor'  : 'Black',
    'height'     : '178cm',
-   'weight'     : '68kg',                                              
-}
-                   
-  document.getElementById('MyDiv01').innerHTML = '<br> myPerson Object has properties: <br>';
-  document.getElementById('myDiv01').innerHTML += 'FirstName: ' + myPerson.firstName + '<br>';
-  document.getElementById('MyDiv01').innerHTML += 'Middlename: ' + myPerson.middleName + '<br>' ;                                             
-  document.getElementById('MyDiv01').innerHTML += 'Lastname: ' + myPerson.lastName + '<br>';
-  document.getElementById('MyDiv01').innerHTML += 'Age: ' + myPerson.age + '<br>';
-  document.getElementById('MyDiv01').innerHTML += 'Eye colour: ' + myPerson.eyeColour + '<br>';
-  document.getElementById('MyDiv01').innerHTML += 'Height: ' + myPerson.height + '<br>';
-  document.getElementById('MyDiv01').innerHTML += 'Weight: ' + myPerson.weight + '<br>';                                                  
+   'weight'     : '68kg', 
+                                                            
+   }
+                                                                
+    document.getElementById('myDiv01').innerHTML = '<br> myPerson Object has properties: <br>';
+    document.getElementById('myDiv01').innerHTML += 'FirstName: ' + myPerson.firstName + '<br>';
+    document.getElementById('myDiv01').innerHTML += 'MiddleName: ' + myPerson.middleName + '<br>';                                               
+    document.getElementById('myDiv01').innerHTML += 'LastName: ' + myPerson.lastName + '<br>';
+    document.getElementById('myDiv01').innerHTML += 'Age: ' + myPerson.age + '<br>';
+    document.getElementById('myDiv01').innerHTML += 'EyeColor: ' + myPerson.eyeColor + '<br>';
+    document.getElementById('myDiv01').innerHTML += 'HairColor: ' + myPerson.hairColor + '<br>';
+    document.getElementById('myDiv01').innerHTML += 'Height: ' + myPerson.height + '<br>';
+    document.getElementById('myDiv01').innerHTML += 'Weight: ' + myPerson.weight + '<br>';                                                
 }">
                                                     
 <div id="MyDiv01">...</div>
