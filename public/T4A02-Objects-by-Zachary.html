@@ -1,50 +1,42 @@
-Version 0.0.4
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Objects Example</title>
+</head>
+<body>
+	Nothing: <input type="text" id="myText01" value="Useless at the moment"><br> 
 
-<h2 align=center>T4A02-Object-by-Zachary</h2>
+	<input type="button" value="My Information" onclick="showMyInformation()">
+	
+	<div id="myDiv01">...</div>
 
-<a href="https://www.w3schools.com/js/js_objects.asp"> Good refrence to Javascript objects</a><br>
+	<script>
+		function showMyInformation() {
+			let myPerson = {
+			   'firstName'  : 'Zachary',
+			   'middleName' : 'Chen',                                               
+			   'lastName'   : 'Fullard',
+			   'age'        :  16,
+			   'eyeColor'   : 'Dark Brown',
+			   'hairColor'  : 'Black',
+			   'height'     : '178cm',
+			   'weight'     : '68kg',                                                         
+			}
 
-Objects are stored named variables
+			document.getElementById('myDiv01').innerHTML = '<br> myPerson Object has properties: <br>'
+			document.getElementById('myDiv01').innerHTML += 'firstName: ' + myPerson.firstName + '<br>'
+			document.getElementById('myDiv01').innerHTML += 'middleName: ' + myPerson.middleName + '<br>'                                               
+			document.getElementById('myDiv01').innerHTML += 'lastName: ' + myPerson.lastName + '<br>'
+			document.getElementById('myDiv01').innerHTML += 'age: ' + myPerson.age + '<br>'
+			document.getElementById('myDiv01').innerHTML += 'eyeColor: ' + myPerson.eyeColor + '<br>'
+			document.getElementById('myDiv01').innerHTML += 'hairColor: ' + myPerson.hairColor + '<br>'
+			document.getElementById('myDiv01').innerHTML += 'height: ' + myPerson.height + '<br>'
+			document.getElementById('myDiv01').innerHTML += 'weight: ' + myPerson.weight + '<br>'                                                
+		}
 
-<h4> Examples Objects code </h4>
-<pre>
-let myPerson = {
-   "firstame" : "Lucas",
-   "lastname" : "Chorm", 
-   "age"      :  17,
-   "eyeColor" : "brown"
-   }
-
-</pre>
-  
-<h4> Example working Objects code </h4>
-    
-Nothing: <input type=text id="MyText01" value="Useless at the moment"><br> 
-    
-<input type=button value="My Information" onClick="{
-                                                                    
-  let myPerson = {
-   'firstName'  : 'Zachary',
-   'middleName' : 'Chen',                                               
-   'lastName'   : 'Fullard',
-   'age'        :  16,
-   'eyeColor'   : 'Dark Brown',
-   'hairColor'  : 'Black',
-   'height'     : '178cm',
-   'weight'     : '68kg',                                                         
-   }
-                                                                
-    document.getElementById('myDiv01').innerHTML = '<br> myPerson Object has properties: <br>'
-    document.getElementById('myDiv01').innerHTML += 'firstName: ' + myPerson.firstName + '<br>'
-    document.getElementById('myDiv01').innerHTML += 'middleName: ' + myPerson.middleName + '<br>'                                               
-    document.getElementById('myDiv01').innerHTML += 'lastName: ' + myPerson.lastName + '<br>'
-    document.getElementById('myDiv01').innerHTML += 'age: ' + myPerson.age + '<br>'
-    document.getElementById('myDiv01').innerHTML += 'eyeColor: ' + myPerson.eyeColor + '<br>'
-    document.getElementById('myDiv01').innerHTML += 'hairColor: ' + myPerson.hairColor + '<br>'
-    document.getElementById('myDiv01').innerHTML += 'height: ' + myPerson.height + '<br>'
-    document.getElementById('myDiv01').innerHTML += 'weight: ' + myPerson.weight + '<br>'                                                
-}">
-                                                    
-<div id="MyDiv01">...</div>
-                                                                     
-<br>
+		window.onload = function() {
+			showMyInformation();
+		};
+	</script>
+</body>
+</html>
