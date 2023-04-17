@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>T4A13-Tax-Zachary</title>
+</head>
+<body>
+
+	<script>
+		var x = 15;   // Hourly Pay
+		var y = 8;    // Hours/Days
+		var tax = 0.3; // Tax
+
+		function calculateSalary() {
+			x = Number(document.getElementById("pay").value);
+			y = Number(document.getElementById("hours").value);
+			tax = Number(document.getElementById("tax").value) / 100;
+			var xy = x * y;
+			var xy_times_tax = xy * tax;
+			var total = xy - xy_times_tax;
+			document.getElementById("total").innerHTML = total;
+			document.getElementById("multiplied").innerHTML = total * 20;
+            document.getElementById("multiplied1").innerHTML = total * 240;
+		}
+	</script>
+
+	<h1>T4A13-Tax-Zachary</h1>
+
+	<label for="salary">Hourly Pay:</label>
+	<input type="number" id="pay" value="15"><br>
+
+	<label for="hours">Hours/Days:</label>
+	<input type="number" id="hours" value="8"><br>
+    
+    <label for="tax">Tax Rate (%):</label>
+	<input type="number" id="tax" value="30"><br>
+
+	<button onclick="calculateSalary()">Calculate</button>
+
+	<p>Total: <span id="total"></span></p>
+
+	<p>20 work days per month pay: <span id="multiplied"></span></p>
+    
+    <p>240 work days per year pay: <span id="multiplied1"></span></p>
+
+</body>
+</html>
