@@ -1,4 +1,4 @@
-# gameDev2023 
+# gameDev2023  how to sort arrays in javascript
 School https://zacharyx1.github.io/gameDev2023/public/index.html
 
 <!DOCTYPE html>
