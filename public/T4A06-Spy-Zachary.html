@@ -1,10 +1,11 @@
-<h5> Version 0.0.6 </h5>
+<h5> Version 0.0.7 </h5>
 
 <h1 align=center>T4A06-Spy-Name-Zachary.html</h1>
 <textarea id="myArea01" rows=4 cols=70>Hello how are you</textarea><br> 
 
+<button onclick="encode()">Encypt Base64</button>
 
-<input type=button value="encrypt" onclick="{
+<input type=button value="Encrypt" onclick="{
    let myTemp = ''
    myString = document.getElementById('myArea01').value.toLowerCase().split('')
    for (let myLoop=0;   myLoop < myString.length; myLoop++){
@@ -44,7 +45,9 @@
 
 <textarea id="myArea02" rows=4 cols=70></textarea><br> 
 
-<input type=button value="decrypt" onclick="{
+<button onclick="decode()">Decyrpt base64</button>
+
+<input type=button value="Decrypt" onclick="{
   let myTemp = ''
    myString = document.getElementById('myArea02').value.toLowerCase().split('')
    for (let myLoop=0;   myLoop < myString.length; myLoop++){
@@ -79,6 +82,37 @@
    }
    document.getElementById('myArea03').value = myString.join('')
 }"><br><br>
+ 
 
-<textarea id="myArea03" rows=4 cols=70></textarea><br> 
+<textarea id="myArea03" rows=4 cols=70></textarea><br>
 
+
+    <script>
+        // base64 encoded text is in the text box below
+        var base64 = "SGVsbG8gaG93IGFyZSB5b3U=";
+        // decode the base64 encoded text
+        var text = atob(base64);
+        // display the decoded text
+        document.write();
+
+    </script>
+
+
+    <script>
+        function encode() {
+            var text = document.getElementById("myArea01").value;
+            var base64 = btoa(text);
+            document.getElementById("myArea02").value = base64;
+        }
+        function decode() {
+            // get the base64 encoded text
+            var base641 = document.getElementById('myArea02').value
+            // decode the base64 encoded text
+            var myText = atob(base641);
+            // display the decoded text in myArea03 text area
+            document.getElementById("myArea03").value = myText;
+        }
+    </script>
+    <div id="myArea03"></div>
+</head>
+</html>
