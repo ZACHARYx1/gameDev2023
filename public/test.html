@@ -1,29 +1,39 @@
-
-<!DOCTYPE html>
-<html>
-<body>
-
-Encryption: <keygen id="myKeygen" name="security">
-
-<p>Click the buttons to display and/or change the value of the name attribute of the keygen field.</p>
-
-<button onclick="display()">Display name</button>
-<button onclick="change()">Change name</button>
+<h1 align="center">T4A12-Sort-Name2-Zachary</h1>
 
 <script>
-function display() {
-  var x = document.getElementById("myKeygen").name;
-  alert("The name of the keygen field is: " + x);
-}
+  let myMax = 6; // 52 when working
+  let myCards = new Array(myMax);
 
-function change() {
-  var x = document.getElementById("myKeygen").name = "newName";
-  alert ("The name was changed to: " + x);
-}
+  function setRandom() {
+    for (let myLoop = 0; myLoop < myMax; myLoop++) {
+      myCards[myLoop] = Math.floor(Math.random() * 10);
+    }
+  }
+
+  function show() {
+    let myTemp = "";
+    for (let myLoop = 0; myLoop < myMax; myLoop++) {
+      myTemp += myLoop + " = " + myCards[myLoop] + "<br>";
+    }
+    document.getElementById("myDiv01").innerHTML = myTemp;
+  }
+
+  function sort() {
+    let myTemp = 0;
+    for (let i = 0; i < myMax; i++) {
+      for (let myLoop = 0; myLoop < myMax - 1; myLoop++) {
+        if (myCards[myLoop] > myCards[myLoop + 1]) {
+          myTemp = myCards[myLoop];
+          myCards[myLoop] = myCards[myLoop + 1];
+          myCards[myLoop + 1] = myTemp;
+        }
+      }
+    }
+  }
 </script>
 
-</body>
-</html>
+<input type="button" value="Set Random" onclick="setRandom()">
+<input type="button" value="Show" onclick="show()">
+<input type="button" value="Sort" onclick="sort()">
 
-
-https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_keygen_name2
+<div id="myDiv01"></div>
