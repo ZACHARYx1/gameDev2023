@@ -3,6 +3,7 @@
 <h1 align=center>T4A06-Spy-Name-Zachary.html</h1>
 <textarea id="myArea01" rows=4 cols=70>Hello how are you</textarea><br> 
 
+<button onclick="encode()">Encypt Base64</button>
 
 <input type=button value="encrypt" onclick="{
    let myTemp = ''
@@ -44,6 +45,8 @@
 
 <textarea id="myArea02" rows=4 cols=70></textarea><br> 
 
+<button onclick="decode()">Decyrpt base64</button>
+
 <input type=button value="decrypt" onclick="{
   let myTemp = ''
    myString = document.getElementById('myArea02').value.toLowerCase().split('')
@@ -79,6 +82,34 @@
    }
    document.getElementById('myArea03').value = myString.join('')
 }"><br><br>
+    
 
-<textarea id="myArea03" rows=4 cols=70></textarea><br> 
+    <script>
+        // base64 encoded text is in the text box below
+        var base64 = "SGVsbG8gV29ybGQh";
+        // decode the base64 encoded text
+        var text = atob(base64);
+        // display the decoded text
+        document.write();
 
+    </script>
+
+
+    <script>
+        function encode() {
+            var text = document.getElementById("myArea01").value;
+            var base64 = btoa(text);
+            document.getElementById("myArea02").value = base64;
+        }
+        function decode() {
+            // get the base64 encoded text
+            var base642 = document.getElementById('myArea02').value
+            // decode the base64 encoded text
+            var myText = atob(base642);
+            // display the decoded text in myArea03 text area
+            document.getElementById("myArea03").value = myText;
+        }
+    </script>
+    <div id="myArea03"></div>
+</head>
+</html>
