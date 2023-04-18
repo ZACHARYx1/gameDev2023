@@ -89,7 +89,7 @@
 
     <script>
         // base64 encoded text is in the text box below
-        var base64 = "kuyfSiuYFSkjHFSUI";
+        var base64 = "SGVsbG8gaG93IGFyZSB5b3U=";
         // decode the base64 encoded text
         var text = atob(base64);
         // display the decoded text
@@ -106,9 +106,9 @@
         }
         function decode() {
             // get the base64 encoded text
-            var base642 = document.getElementById('myArea02').value
+            var base641 = document.getElementById('myArea02').value
             // decode the base64 encoded text
-            var myText = atob(base642);
+            var myText = atob(base641);
             // display the decoded text in myArea03 text area
             document.getElementById("myArea03").value = myText;
         }
