@@ -20,7 +20,5 @@ Text example: <input id="myText1" type="text" size="70" value="" placeholder="Wr
 }">
 
 <input type="button" value="Retrieve Text" onClick="{
-   var retrievedText = localStorage.getItem('myStoredText');
-   alert('Retrieved Text: ' + retrievedText);
-   document.getElementById('myText1').value = retrievedText;
-}">
+  document.getElementById('myText1').value = localStorage.getItem('myStoredText')
+}"> 
