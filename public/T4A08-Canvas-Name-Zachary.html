@@ -30,6 +30,14 @@ You use loops and variables to make fast fancy drawings <br><br>
    myContext.stroke();
 }">
 
+<input type=button value="Red Circle)" onclick="{
+   myContext.beginPath();
+   myContext.lineWidth = 10;
+   myContext.strokeStyle = 'red';
+   myContext.arc(105, 60, 50, 10, 12 * Math.PI);
+   myContext.stroke();
+}">
+
 <input type=button value=".fillText('Hello World', 400, 100)" onclick="{
    myContext.font = '20px Arial';
    myContext.fillText('Hello World', 400, 100);
@@ -39,6 +47,17 @@ You use loops and variables to make fast fancy drawings <br><br>
    myContext.stroke();
    myContext.resetTransform();  
    //myContext.rotate(-60 * Math.PI / 180); 
+}">
+
+<input type=button value=".fillText('Zachary', 400, 100)" onclick="{
+   myContext.font = '20px Arial';
+   myContext.fillText('Zachary', 400, 100);
+   myContext.translate(800, 200);  
+   myContext.rotate(90 * Math.PI / 180); 
+   myContext.fillText('Zachary', 10, 10);
+   myContext.stroke();
+   myContext.resetTransform();  
+   //myContext.rotate(-250 * Math.PI / 180); 
 }">
 
 <input type=button value=".quadraticCurveTo(100,220,240,110)" onclick="{
