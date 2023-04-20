@@ -9,11 +9,6 @@ public class Canvas extends JFrame {
     Container c;
     Board b;
     JButton green, red, blue, gradient, circle;
-    static boolean gb = true;
-    static boolean rb = false;
-    static boolean bb = false;
-    static boolean gr = false;
-    static boolean ci = false;
 
     public Canvas() {
         c = getContentPane();
@@ -33,39 +28,34 @@ public class Canvas extends JFrame {
         circle.addActionListener(new BListener());
         gradient.addActionListener(new BListener());
 
-        // add
-        b.add(gradient);
-        b.add(circle);
-        b.add(green);
-        b.add(red);
-        b.add(blue);
-        c.add(b);
+        // add buttons to a panel
+        JPanel buttonPanel = new JPanel();
+        buttonPanel.setLayout(new FlowLayout());
+        buttonPanel.add(gradient);
+        buttonPanel.add(circle);
+        buttonPanel.add(green);
+        buttonPanel.add(red);
+        buttonPanel.add(blue);
+
+        // add panel and board to the container
+        c.setLayout(new BorderLayout());
+        c.add(buttonPanel, BorderLayout.NORTH);
+        c.add(b, BorderLayout.CENTER);
     }
 
     // Listener
     class BListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-            // Reset all boolean variables to false
-            gb = false;
-            rb = false;
-            bb = false;
-            gr = false;
-            ci = false;
-
             if (e.getSource() == green) {
-                gb = true;
-            }
-            if (e.getSource() == blue) {
-                bb = true;
-            }
-            if (e.getSource() == red) {
-                rb = true;
-            }
-            if (e.getSource() == gradient) {
-                gr = true;
-            }
-            if (e.getSource() == circle) {
-                ci = true;
+                b.setColor(Color.GREEN);
+            } else if (e.getSource() == blue) {
+                b.setColor(Color.BLUE);
+            } else if (e.getSource() == red) {
+                b.setColor(Color.RED);
+            } else if (e.getSource() == gradient) {
+                b.setGradient(true);
+            } else if (e.getSource() == circle) {
+                b.setGradient(false);
             }
             b.repaint();
         }
@@ -75,7 +65,6 @@ public class Canvas extends JFrame {
         Canvas frame = new Canvas();
         frame.setVisible(true);
         frame.setSize(600, 600);
-        frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 }
-
