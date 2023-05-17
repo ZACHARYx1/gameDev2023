@@ -1,4 +1,15 @@
-<body id="myBody" style="background-repeat: repeat; background-size: 80%" background="myBackground01.jpg" onkeydown="{
+<style>
+  @keyframes scrollBackground {
+    from {
+      background-position: 0;
+    }
+    to {
+      background-position: -100%;
+    }
+  }
+</style>
+
+<body id="myBody" style="background-repeat: repeat; background-size: 80%; animation: scrollBackground 10s linear infinite;" background="myBackground01.jpg" onkeydown="{
   let myKey = event.key.toLowerCase();
   let img = document.getElementById('myImg01');
   let imgLeft = parseInt(img.style.left);
