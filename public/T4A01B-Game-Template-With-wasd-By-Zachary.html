@@ -1,4 +1,3 @@
-
 <style>
   @keyframes scrollBackground {
     from {
@@ -60,12 +59,42 @@
       document.getElementById('myImg01').style.left = '20px';
       location = ''; // go to your next level
     }
+    
+    if (myHitOther('myImg01', 'myImgNew')) {
+      alert('You died LOL');
+      document.getElementById('myImg01').style.left = '20px';
+      location = ''; // go to your next level
+    }
 
     // more if statements here like the above
   } // end of myCheckHit()
 </script>
 
 <img id="myImg01" style="position: absolute; width: 100px; height: 80px; top: 0px; left: 50px;" src="myImage01.jpg">
-<img id="myImg02" style="position: absolute; width: 100px; height: 80px; top: 0px; left: 250px;" src="myImage02.jpg">
+
+<script>
+  // Generate multiple instances of 'myImg02' and 'myImgNew'
+  for (let i = 0; i < 10; i++) {
+    let img02 = document.createElement('img');
+    img02.id = 'myImg02_' + i;
+    img02.style.position = 'absolute';
+    img02.style.width = '100px';
+    img02.style.height = '80px';
+    img02.style.top = (Math.floor(Math.random() * window.innerHeight)) + 'px';
+    img02.style.left = (Math.floor(Math.random() * window.innerWidth)) + 'px';
+    img02.src = 'myImage02.jpg';
+    document.body.appendChild(img02);
+
+    let imgNew = document.createElement('img');
+    imgNew.id = 'myImgNew_' + i;
+    imgNew.style.position = 'absolute';
+    imgNew.style.width = '100px';
+    imgNew.style.height = '80px';
+    imgNew.style.top = (Math.floor(Math.random() * window.innerHeight)) + 'px';
+    imgNew.style.left = (Math.floor(Math.random() * window.innerWidth)) + 'px';
+    imgNew.src = 'myImgNew.jpg';
+    document.body.appendChild(imgNew);
+  }
+</script>
 
 <div id="myDiv01" style="color: yellow; visibility: hidden;">..</div>
