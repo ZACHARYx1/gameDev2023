@@ -60,12 +60,20 @@
       location = ''; // go to your next level
     }
     
-    if (myHitOther('myImg01', 'myImgNew')) {
-      alert('You died LOL');
-      document.getElementById('myImg01').style.left = '20px';
-      location = ''; // go to your next level
+    for (let i = 0; i < 10; i++) {
+      if (myHitOther('myImg01', 'myImg02_' + i)) {
+        alert('You died LOL');
+        document.getElementById('myImg01').style.left = '20px';
+        location = ''; // go to your next level
+      }
+      
+      if (myHitOther('myImg01', 'myImgNew_' + i)) {
+        alert('You died LOL');
+        document.getElementById('myImg01').style.left = '20px';
+        location = ''; // go to your next level
+      }
     }
-
+    
     // more if statements here like the above
   } // end of myCheckHit()
 </script>
