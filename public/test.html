@@ -1,4 +1,16 @@
-<body id="myBody" style="background-repeat: repeat; background-size: 80%" background="myBackground01.jpg" onkeydown="{
+
+<style>
+  @keyframes scrollBackground {
+    from {
+      background-position: 0;
+    }
+    to {
+      background-position: -100%;
+    }
+  }
+</style>
+
+<body id="myBody" style="background-repeat: repeat; background-size: 80%; animation: scrollBackground 10s linear infinite;" background="myBackground01.jpg" onkeydown="{
   let myKey = event.key.toLowerCase();
   let img = document.getElementById('myImg01');
   let imgLeft = parseInt(img.style.left);
@@ -27,10 +39,10 @@
 
   // global functions here
   function myHitOther(my1, my2) {
-    let left1 = parseInt(document.getElementById(my1).style.left) + 40; // Adjusted left position for narrower hitbox
-    let right1 = left1 + parseInt(document.getElementById(my1).style.width) - 40; // Adjusted right position for narrower hitbox
-    let top1 = parseInt(document.getElementById(my1).style.top) + 40; // Adjusted top position for narrower hitbox
-    let bottom1 = top1 + parseInt(document.getElementById(my1).style.height) - 40; // Adjusted bottom position for narrower hitbox
+    let left1 = parseInt(document.getElementById(my1).style.left);
+    let right1 = left1 + parseInt(document.getElementById(my1).style.width);
+    let top1 = parseInt(document.getElementById(my1).style.top);
+    let bottom1 = top1 + parseInt(document.getElementById(my1).style.height);
     let left2 = parseInt(document.getElementById(my2).style.left);
     let right2 = left2 + parseInt(document.getElementById(my2).style.width);
     let top2 = parseInt(document.getElementById(my2).style.top);
@@ -42,18 +54,56 @@
     return false;
   }
 
-  function myCheckHit() {
-    if (myHitOther('myImg01', 'myImg02')) {
-      alert('you lose');
-      document.getElementById('myImg01').style.left = '20px';
-      location = 't2a13-keydown.html'; // go to your next level
-    }
+ 
+function restartGame() {
+  // Show "Game Over" popup
+  alert('Game Over');
+  
+  // Reload the page to restart the game
+  location.reload();
+}
 
-    // more if statements here like the above
-  } // end of myCheckHit()
+function myCheckHit() {
+  if (myHitOther('myImg01', 'myImg03')) {
+    alert('After swiftly evading your enemies, you get sent into another dimension. You have gained shooting abilities, press "Enter" to shoot.');
+    document.getElementById('myImg01').style.left = '20px';
+    location = ''; // go to your next level
+  } else if (myHitOther('myImg01', 'myImg02')) {
+    restartGame();
+  }
+
+  // Add more if statements here like the above
+} // end of myCheckHit()
 </script>
 
-<img id="myImg01" style="position: absolute; width: 100px; height: 80px; top: 0px; left: 50px;" src="myImage01.jpg">
-<img id="myImg02" style="position: absolute; width: 100px; height: 80px; top: 0px; left: 250px;" src="myImage02.jpg">
-
+<img id="myImg01" style="position: absolute; width: 50px; height: 80px; top: 0px; left: 50px;" src="myImage01.jpg">
+<img id="myImg02" style="position: absolute; width: 50px; height: 80px; top: 0px; left: 650px;" src="myImage02.jpg">
+<img id="myImgNew" style="position: absolute; width: 50px; height: 80px; top: 0px; bottom: 50px; left: 250px;" src="myImgNew.jpg">  
+<img id="myImg03" style="position: absolute; width: 50px; height: 80px; top: 0px; bottom: 50px; left: 150px;" src="myImage03.jpg"> 
 <div id="myDiv01" style="color: yellow; visibility: hidden;">..</div>
+
+
+
+
+
+
+
+function restartGame() {
+  // Show "Game Over" popup
+  alert('Game Over');
+  
+  // Reload the page to restart the game
+  location.reload();
+}
+
+function myCheckHit() {
+  if (myHitOther('myImg01', 'myImg03')) {
+    alert('After swiftly evading your enemies, you get sent into another dimension. You have gained shooting abilities, press "Enter" to shoot.');
+    document.getElementById('myImg01').style.left = '20px';
+    location = ''; // go to your next level
+  } else if (myHitOther('myImg01', 'myImg02')) {
+    restartGame();
+  }
+
+  // Add more if statements here like the above
+} // end of myCheckHit()
