@@ -59,7 +59,13 @@
       alert('After swiftly evading your enemies, you get sent into another dimension. You have gained shooting abilities, press "Enter" to shoot.');
       document.getElementById('myImg01').style.left = '20px';
       location = ''; // go to your next level
-    
+      
+    function myCheckHit() {
+    if (myHitOther('myImg01', 'myImg02')) {
+      alert('Game Over');
+      document.getElementById('myImg01').style.left = '20px';
+      location = ''; // go to your next level
+      
     }
 
     // more if statements here like the above
