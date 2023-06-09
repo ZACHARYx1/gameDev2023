@@ -1,1 +1,88 @@
 
+
+<style>
+  @keyframes scrollBackground {
+    from {
+      background-position: 0;
+    }
+    to {
+      background-position: -100%;
+    }
+  }
+</style>
+
+<body id="myBody" style="background-repeat: repeat; background-size: 80%; animation: scrollBackground 10s linear infinite;" background="myBackground01.jpg" onkeydown="{
+  let myKey = event.key.toLowerCase();
+  let img = document.getElementById('myImg01');
+  let imgLeft = parseInt(img.style.left);
+  let imgTop = parseInt(img.style.top);
+  let imgWidth = parseInt(img.style.width);
+  let imgHeight = parseInt(img.style.height);
+  
+  if (myKey === 'd') {
+    img.style.left = (imgLeft + 7) + 'px';
+  } else if (myKey === 'a') {
+    img.style.left = (imgLeft - 7) + 'px';
+  } else if (myKey === 'w') {
+    img.style.top = (imgTop - 7) + 'px';
+  } else if (myKey === 's') {
+    img.style.top = (imgTop + 7) + 'px';
+  }
+  
+  myCheckHit();
+}" tabindex="0">
+
+<script>
+  // global variables here
+  let myGlobalX = 0;
+  let myClock;
+  let myInterval = 0;
+
+  // global functions here
+  function myHitOther(my1, my2) {
+    let left1 = parseInt(document.getElementById(my1).style.left);
+    let right1 = left1 + parseInt(document.getElementById(my1).style.width);
+    let top1 = parseInt(document.getElementById(my1).style.top);
+    let bottom1 = top1 + parseInt(document.getElementById(my1).style.height);
+    let left2 = parseInt(document.getElementById(my2).style.left);
+    let right2 = left2 + parseInt(document.getElementById(my2).style.width);
+    let top2 = parseInt(document.getElementById(my2).style.top);
+    let bottom2 = top2 + parseInt(document.getElementById(my2).style.height);
+    
+    if (right1 >= left2 && bottom1 >= top2 && left1 <= right2 && top1 <= bottom2) {
+      return true;
+    }
+    return false;
+  }
+
+ 
+function restartGame() {
+  // Show "Game Over" popup
+  alert('Game Over');
+  
+  // Reload the page to restart the game
+  location.reload();
+}
+
+function myCheckHit() {
+  if (myHitOther('myImg01', 'myImg03')) {
+    alert('After swiftly evading your enemies, you get sent into another dimension. You have gained shooting abilities, press "Enter" to shoot.');
+    document.getElementById('myImg01').style.left = '20px';
+    location = ''; // go to your next level
+  } else if (myHitOther('myImg01', 'myImg02')) {
+    restartGame();
+  }
+    else if (myHitOther('myImg01', 'myImgNew')) {
+    restartGame();
+  }   
+    else if (myHitOther('myImg01', 'myImg02A')) {
+    restartGame();
+  }
+ 
+  // Add more if statements here like the above
+} // end of myCheckHit()
+</script>
+
+<img id="myImg01" style="position: absolute; width: 50px; height: 80px; top: 0px; left: 50px;" src="myImage01.jpg">
+<img id="myImg03" style="position: absolute; width: 50px; height: 80px; top: 500px; left: 900px;" src="myImage03.jpg"> 
+<div id="myDiv01" style="color: yellow; visibility: hidden;">..</div>
